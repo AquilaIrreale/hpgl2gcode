@@ -208,7 +208,8 @@ int main(int argc, char *argv[])
             char *inname = argv[1];
             char *dot = strrchr(inname, '.');
             int len;
-            if (dot == NULL || strcmp(dot, ".hpgl") != 0) {
+            if (dot == NULL ||
+                (strcmp(dot, ".hpgl") != 0 && strcmp(dot, ".plt") != 0 )) {
                 len = strlen(inname);
             } else {
                 len = dot - inname;
