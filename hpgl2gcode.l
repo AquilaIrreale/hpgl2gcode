@@ -3,7 +3,7 @@
 #include "y.tab.h"
 %}
 %%
-[ \n\t\v\f\b]+ {; /* Ignore */}
+[ \n\r\t\v\f\b]+ {; /* Ignore */}
 
 IN {return IN;}
 IP {return IP;}
