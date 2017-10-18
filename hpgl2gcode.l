@@ -13,6 +13,7 @@ PU {return PU;}
 PD {return PD;}
 PA {return PA;}
 AA {return AA;}
+VS {return VS;}
 
 -?[0-9]*\.[0-9]+ {yylval.d = atof(yytext); return DOUBLE;}
 -[0-9]+          {yylval.d = atof(yytext); return DOUBLE;}

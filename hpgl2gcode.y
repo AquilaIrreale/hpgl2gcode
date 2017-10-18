@@ -40,7 +40,7 @@ unsigned p2y = 100;
 %token <i> NUMBER
 %token <d> DOUBLE
 %type  <d> double
-%token IN IP SC SP PU PD PA AA
+%token IN IP SC SP PU PD PA AA VS
 %start list
 %%
 double: DOUBLE
@@ -52,6 +52,7 @@ list: /* nothing */
 
 command: IN
        | SP NUMBER /* ignore */
+       | VS NUMBER /* ignore */
        | ip
        | sc
        | pa
