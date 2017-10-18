@@ -1,0 +1,22 @@
+%{
+#include "y.tab.h"
+%}
+wspace [\n\t\v\f\b ]+
+number [0-9]+
+%%
+[ \n\t\v\f\b]+ ;/* Ignore */
+
+IN return IN;
+IP return IP;
+SC return SC;
+SP return SP;
+PU return PU;
+PD return PD;
+PA return PA;
+AA return AA;
+
+[0-9]+ yylval = atoi(yytext); return NUMBER;
+
+. return *yytext;
+
+%%
