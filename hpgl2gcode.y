@@ -11,7 +11,7 @@
 #define U2MM_IP(u) (U2UM(u) / 1000)
 #define U2MM_FP(u) (U2UM(u) % 1000)
 
-#define PLOT_SPEED   1800
+#define PLOT_SPEED   1500
 #define TRAVEL_SPEED 3600
 
 int yywrap();
