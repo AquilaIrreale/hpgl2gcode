@@ -140,8 +140,6 @@ void aa(unsigned cx, unsigned cy, double theta)
     int i = cx - curx;
     int j = cy - cury;
     
-    fprintf(stderr, "DEBUG: X = %u Y = %u I = %d J = %d\n", x, y, i, j);
-
     printf("G%c X%u.%03u Y%u.%03u I%d.%03d J%d.%03d F%u\n",
            theta < 0 ? '2' : '3',
            U2MM_IP(x), U2MM_FP(x),
