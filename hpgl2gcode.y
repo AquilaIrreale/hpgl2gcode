@@ -1,6 +1,7 @@
 %{
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 #include <math.h>
 
 #define PI (acos(-1.0))
@@ -183,6 +184,45 @@ void finalize()
 
 int main(int argc, char *argv[])
 {
+    if (argc > 3) {
+        puts("Too many arguments");
+        return 1;
+    }
+
+    if (argc > 1) {
+        if (!freopen(argv[1], "r", stdin)) {
+            perror(argv[1]);
+            return 1;
+        }
+
+        if (argc > 2) {
+            if (!freopen(argv[2], "w", stdout)) {
+                perror(argv[2]);
+                return 1;
+            }
+        } else {
+            char *inname = argv[1];
+            char *dot = strrchr(inname, '.');
+            int len;
+            if (dot == NULL || strcmp(dot, ".hpgl") != 0) {
+                len = strlen(inname);
+            } else {
+                len = dot - inname;
+            }
+
+            char *outname = malloc((len + 6 + 1) * sizeof *outname);
+            strncpy(outname, inname, len);
+            strcpy(outname+len, ".gcode");
+
+            if (!freopen(outname, "w", stdout)) {
+                perror(outname);
+                return 1;
+            }
+
+            free(outname);
+        }
+    }
+
     init();
     yyparse();
     finalize();

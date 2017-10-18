@@ -1,7 +1,8 @@
 LDLIBS = -lm
+CFLAGS = -g
 
 hpgl2gcode: lex.yy.o y.tab.o
-	gcc -o hpgl2gcode lex.yy.o y.tab.o $(LDLIBS)
+	gcc -g -o hpgl2gcode lex.yy.o y.tab.o $(LDLIBS)
 
 y.tab.h: y.tab.c
 y.tab.c: hpgl2gcode.y
