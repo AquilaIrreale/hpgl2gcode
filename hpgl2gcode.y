@@ -11,6 +11,9 @@
 #define U2MM_IP(u) (U2UM(u) / 1000)
 #define U2MM_FP(u) (U2UM(u) % 1000)
 
+#define PLOT_SPEED   1800
+#define TRAVEL_SPEED 3600
+
 int yywrap();
 void yyerror(const char *s);
 
@@ -20,7 +23,7 @@ void pd();
 void pa(unsigned x, unsigned y);
 void aa(unsigned cx, unsigned cy, double theta);
 
-unsigned feedrate = 1200;
+unsigned feedrate = PLOT_SPEED;
 
 unsigned curx = 0;
 unsigned cury = 0;
@@ -88,11 +91,13 @@ void sc(unsigned minx, unsigned maxx, unsigned miny, unsigned maxy)
 void pu()
 {
     puts("G1 Z5.0 F1500");
+    feedrate = TRAVEL_SPEED;
 }
 
 void pd()
 {
     puts("G1 Z0.0 F1500");
+    feedrate = PLOT_SPEED;
 }
 
 void pa(unsigned x, unsigned y)
