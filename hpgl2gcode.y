@@ -176,6 +176,9 @@ void init()
 
 void finalize()
 {
+    pu();
+    puts("G28 X0 Y0\n"
+         "M84");
 }
 
 int main(int argc, char *argv[])
