@@ -167,7 +167,7 @@ void init()
          "M140 S0\n"
          "G21\n"
          "G90\n"
-         "G92\n"
+         "G92 X0 Y0 Z0 E0\n"
          "M107\n"
          "M117 Plotting...");
     pu();
