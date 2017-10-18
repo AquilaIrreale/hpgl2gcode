@@ -1,0 +1,5 @@
+*.o
+hpgl2gcode
+y.tab.h
+y.tab.c
+lex.yy.c
