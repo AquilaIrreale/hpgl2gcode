@@ -91,7 +91,7 @@ void sc(unsigned minx, unsigned maxx, unsigned miny, unsigned maxy)
 
 void pu()
 {
-    puts("G1 Z3.0 F1500");
+    puts("G1 Z2.5 F1500");
     feedrate = TRAVEL_SPEED;
 }
 
