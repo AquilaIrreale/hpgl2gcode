@@ -1,6 +1,8 @@
 %{
+#include <config.h>
+
 #include <stdlib.h>
-#include "y.tab.h"
+#include "parser.h"
 %}
 %%
 [ \n\r\t\v\f\b]+ {; /* Ignore */}

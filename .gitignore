@@ -1,5 +1,5 @@
 *.o
+*.cache
+*.tar*
 hpgl2gcode
-y.tab.h
-y.tab.c
-lex.yy.c
+autom4te.cache
