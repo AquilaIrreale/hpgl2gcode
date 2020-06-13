@@ -2,7 +2,7 @@ AUTOMAKE_OPTIONS = foreign
 
 BUILT_SOURCES = src/parser.h
 AM_YFLAGS = -d
-AM_CFLAGS = -I.
+AM_CFLAGS = -I. -Wall -Wextra -ansi
 
 bin_PROGRAMS = hpgl2gcode
 hpgl2gcode_SOURCES = src/parser.y \
