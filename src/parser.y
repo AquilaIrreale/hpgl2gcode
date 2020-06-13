@@ -2,6 +2,7 @@
 #include <config.h>
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 #include <math.h>
@@ -16,6 +17,7 @@
 #define PLOT_SPEED   1500
 #define TRAVEL_SPEED 3600
 
+int yylex();
 int yywrap();
 void yyerror(const char *s);
 
@@ -110,7 +112,7 @@ void pa(unsigned x, unsigned y)
            U2MM_FP(x),
            U2MM_IP(y),
            U2MM_FP(y),
-           feedrate); 
+           feedrate);
 
     curx = x;
     cury = y;
@@ -141,13 +143,13 @@ void aa(unsigned cx, unsigned cy, double theta)
 
     double tx = px * c - py * s;
     double ty = px * s + py * c;
-    
+
     unsigned x = tx + cx;
     unsigned y = ty + cy;
 
     int i = cx - curx;
     int j = cy - cury;
-    
+
     printf("G%c X%u.%03u Y%u.%03u I%d.%03d J%d.%03d F%u\n",
            theta < 0 ? '2' : '3',
            U2MM_IP(x), U2MM_FP(x),
